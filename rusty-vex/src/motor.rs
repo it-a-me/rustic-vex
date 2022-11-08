@@ -1,0 +1,21 @@
+extern "C" {
+    #[doc = " Sets the voltage for the motor from -127 to 127."]
+    #[doc = ""]
+    #[doc = " This is designed to map easily to the input from the controller's analog"]
+    #[doc = " stick for simple opcontrol use. The actual behavior of the motor is analogous"]
+    #[doc = " to use of motor_move_voltage(), or motorSet() from the PROS 2 API."]
+    #[doc = ""]
+    #[doc = " This function uses the following values of errno when an error state is"]
+    #[doc = " reached:"]
+    #[doc = " ENXIO - The given value is not within the range of V5 ports (1-21)."]
+    #[doc = " ENODEV - The port cannot be configured as a motor"]
+    #[doc = ""]
+    #[doc = " \\param port"]
+    #[doc = "        The V5 port number from 1-21"]
+    #[doc = " \\param voltage"]
+    #[doc = "        The new motor voltage from -127 to 127"]
+    #[doc = ""]
+    #[doc = " \\return 1 if the operation was successful or PROS_ERR if the operation"]
+    #[doc = " failed, setting errno."]
+    pub fn motor_move(port: u8, voltage: i32) -> i32;
+}
